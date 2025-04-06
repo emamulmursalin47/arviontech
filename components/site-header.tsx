@@ -33,8 +33,8 @@ export function SiteHeader() {
             <Image 
               src="https://res.cloudinary.com/dufs2ywc7/image/upload/v1743935527/Arvion_Logo3_agwqox.png"
               alt="Arvion Tech Logo"
-              width={40}
-              height={40}
+              width={100}
+              height={50}
               className="rounded-sm"
             />
           </motion.div>
