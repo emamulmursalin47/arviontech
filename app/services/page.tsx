@@ -30,10 +30,10 @@ const ServiceModal = ({ isOpen, onClose, service }) => {
           >
             <motion.div
               className="bg-white dark:bg-gray-900 rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.4 }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative">
@@ -65,7 +65,6 @@ const ServiceModal = ({ isOpen, onClose, service }) => {
                     <div>
                       <h4 className="font-semibold text-lg mb-3">Key Features</h4>
                       <ul className="space-y-2">
-                        
                         {service.features.map((feature: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined, index: Key | null | undefined) => (
                           <li key={index} className="flex items-start gap-3">
                             <div className="mt-1 text-[#1887eb]">
@@ -212,6 +211,12 @@ export default function ServicesPage() {
   const openServiceModal = (service) => {
     setSelectedService(service);
     setModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    document.body.style.overflow = "auto";
   };
 
   // Animation variants
@@ -251,13 +256,11 @@ export default function ServicesPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            
           >
             <h1 className="text-4xl md:text-6xl lg:text-5xl mt-0 font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#0552b9] to-[#733cff]">
               Our Services
@@ -279,28 +282,8 @@ export default function ServicesPage() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-16"
           >
-            {/* <motion.button
-              className="bg-gradient-to-r from-[#0552b9] to-[#733cff] text-white px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Explore Services
-            </motion.button> */}
           </motion.div>
           <div className="container px-4 mx-auto">
-          {/* <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Services</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Explore our comprehensive range of digital services designed to help your business thrive
-            </p>
-          </motion.div> */}
-          
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             variants={containerVariants}
@@ -345,22 +328,12 @@ export default function ServicesPage() {
           </motion.div>
         </div>
         </motion.div>
-        
       </section>
 
-      {/* Featured Services Section */}
-     
-
-      {/* Services Accordion Section */}
-      
-      
-      {/* Contact CTA */}
-     
-      
       {/* Service Modal */}
       <ServiceModal 
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={closeModal}
         service={selectedService}
       />
     </div>

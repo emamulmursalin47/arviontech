@@ -26,7 +26,7 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full backdrop-blur-lg  sticky top-0 z-50">
+    <header className="w-full backdrop-blur-lg sticky top-0 z-50">
       <nav className="container mx-auto px-4 flex items-center justify-between h-20">
         {/* Left Navigation - Desktop */}
         <div className="hidden md:flex items-center space-x-8">
@@ -34,13 +34,16 @@ export function SiteHeader() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-white ${
+              className={`text-sm font-medium transition-colors relative group ${
                 pathname === item.href
                   ? "text-black"
-                  : "text-black/80"
+                  : "text-black/80 hover:text-black"
               }`}
             >
               {item.name}
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 group-hover:w-full transition-all duration-300 ${
+                pathname === item.href ? "w-full" : ""
+              }`}></span>
             </Link>
           ))}
         </div>
@@ -70,16 +73,19 @@ export function SiteHeader() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-white ${
+              className={`text-sm font-medium transition-colors relative group ${
                 pathname === item.href
                   ? "text-black"
-                  : "text-black/80"
+                  : "text-black/80 hover:text-black"
               }`}
             >
               {item.name}
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 group-hover:w-full transition-all duration-300 ${
+                pathname === item.href ? "w-full" : ""
+              }`}></span>
             </Link>
           ))}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
         </div>
 
         {/* Mobile menu button */}
@@ -107,7 +113,7 @@ export function SiteHeader() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block px-3 py-2 text-base font-medium rounded-md ${
+                  className={`block px-3 py-2 text-base font-medium rounded-md relative group ${
                     pathname === item.href
                       ? "text-black bg-white/10"
                       : "text-black/80 hover:text-black hover:bg-white/5"
@@ -115,6 +121,9 @@ export function SiteHeader() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
+                  <span className={`absolute bottom-0 left-3 w-0 h-0.5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 group-hover:w-[calc(100%-24px)] transition-all duration-300 ${
+                    pathname === item.href ? "w-[calc(100%-24px)]" : ""
+                  }`}></span>
                 </Link>
               ))}
             </div>

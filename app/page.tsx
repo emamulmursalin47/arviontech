@@ -11,6 +11,7 @@ import TeamPage from "./team/page";
 import ServicesPage from "./services/page";
 import PortfolioSection from "./portfolio/page";
 import { useEffect, useRef } from "react";
+import AboutPage from "./about/page";
 
 // Type definitions for service items
 interface ServiceItem {
@@ -92,6 +93,18 @@ const pulseAnimation = {
     transition: {
       duration: 3,
       repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};
+
+// New line animation for buttons
+const lineAnimation = {
+  hidden: { width: 0 },
+  visible: { 
+    width: "100%", 
+    transition: { 
+      duration: 0.5,
       ease: "easeInOut"
     }
   }
@@ -247,9 +260,9 @@ export default function Home() {
               transition={{ duration: 0.7 }}
               className="text-center"
             >
-              <h2 className="text-3xl md:text-5xl font-medium text-gray-700 mb-2">We develop</h2>
+              <h2 className="text-3xl md:text-5xl font-medium bg-gradient-to-r from-[#0552b9] to-[#1887eb] bg-clip-text text-transparent mb-2">We develop</h2>
               <div className="flex items-center justify-center">
-                <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-10">
+                <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[#1887eb] to-[#733cff] bg-clip-text text-transparent mb-10">
                   Impactful Products
                   <motion.span
                     initial={{ opacity: 0, x: -10 }}
@@ -278,11 +291,10 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 + index * 0.1 }}
                     style={{
-                      
                       y: useTransform(scrollY, [0, 300], [0, -20 + index * 5])
                     }}
                   >
-                    <span className="text-xl text-[#1887eb] mr-1">🔹</span>
+                    <span className="text-xl bg-gradient-to-r from-[#1887eb] to-[#733cff] bg-clip-text text-transparent mr-1">🔹</span>
                     {service.title}
                   </motion.span>
                 ))}
@@ -298,34 +310,64 @@ export default function Home() {
                 y: useTransform(scrollY, [0, 300], [0, -30])
               }}
             >
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="text-[#733cff] border-[#733cff] hover:bg-[#733cff]/10"
-                asChild
+              {/* Enhanced Portfolio Button with line animation */}
+              <motion.div
+                className="relative group"
+                whileHover="visible"
               >
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="text-[#733cff] border-2 border-[#733cff] hover:bg-[#733cff]/10 relative z-10 overflow-hidden transition-all duration-300"
+                  asChild
                 >
-                  <Link href="/portfolio">Portfolios</Link>
-                </motion.div>
-              </Button>
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-[#1887eb] to-[#733cff] text-white hover:shadow-md hover:shadow-[#733cff]/20 transition-all duration-300"
-                asChild
+                  <Link href="/portfolio">
+                    <motion.span
+                      className="flex items-center relative z-10"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <span>Our Portfolio</span>
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </motion.span>
+                  </Link>
+                </Button>
+                <motion.div 
+                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#1887eb] to-[#733cff]"
+                  variants={lineAnimation}
+                  initial="hidden"
+                  whileHover="visible"
+                />
+              </motion.div>
+              
+              {/* Enhanced Schedule Call Button with line animation */}
+              <motion.div 
+                className="relative group"
+                whileHover="visible"
               >
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-[#1887eb] to-[#733cff] text-white hover:shadow-lg hover:shadow-[#733cff]/30 transition-all duration-300 relative z-10"
+                  asChild
                 >
                   <Link href="/contact">
-                    Schedule a call
-                    <ArrowUpRight className="ml-2 h-4 w-4" />
+                    <motion.span
+                      className="flex items-center relative z-10"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Schedule a call
+                      <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </motion.span>
                   </Link>
-                </motion.div>
-              </Button>
+                </Button>
+                <motion.div 
+                  className="absolute bottom-0 left-0 h-1 bg-white"
+                  variants={lineAnimation}
+                  initial="hidden"
+                  whileHover="visible"
+                />
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -353,7 +395,7 @@ export default function Home() {
       >
         <ServicesPage/>
       </motion.div>
-      
+      <AboutPage/>
       <motion.div
         style={{
           translateY: useTransform(scrollY, [300, 600], [100, 0]),
@@ -361,6 +403,7 @@ export default function Home() {
         }}
       >
         <TeamPage/>
+        
       </motion.div>
       
       {/* Services Section */}
@@ -371,11 +414,12 @@ export default function Home() {
             opacity: useTransform(scrollY, [600, 900, 1200], [0, 1, 1])
           }}
         >
-          <PortfolioSection/>
+        
         </motion.div>
       </section>
-
-      {/* CTA Section with parallax */}
+      <PortfolioSection/>
+      
+      {/* CTA Section with parallax and improved animations */}
       <section className="py-24 relative text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0552b9] via-[#1887eb] to-[#733cff]"></div>
         <motion.div 
@@ -393,10 +437,10 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
+            <h2 className="text-4xl font-bold mb-4 text-white">Ready to Transform Your Business?</h2>
            
             <motion.div 
-              className="bg-white p-8 max-w-md mx-auto rounded-xl shadow-xl"
+              className="bg-white p-8 mt-20 max-w-md mx-auto rounded-xl shadow-xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -405,7 +449,7 @@ export default function Home() {
                 y: useTransform(scrollY, [1400, 1800], [50, -30])
               }}
             >
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">Contact us Quickly!</h3>
+              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-[#0552b9] to-[#733cff] bg-clip-text text-transparent">Contact us Quickly!</h3>
               <p className="text-gray-600 mb-6">With a simple step you will be connected with our trained customer support manager.</p>
               <div className="flex flex-col sm:flex-row items-center gap-2">
                 <input 
@@ -414,11 +458,20 @@ export default function Home() {
                   className="px-4 py-3 border border-gray-300 rounded-lg sm:rounded-l-lg sm:rounded-r-none flex-1 focus:outline-none focus:ring-2 focus:ring-[#1887eb] w-full" 
                 />
                 <motion.button 
-                  className="bg-gradient-to-r from-[#0552b9] to-[#733cff] hover:from-[#0552b9] hover:to-[#5223bb] text-white px-6 py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-colors duration-300 w-full sm:w-auto"
+                  className="relative bg-gradient-to-r from-[#0552b9] to-[#733cff] hover:from-[#0552b9] hover:to-[#5223bb] text-white px-6 py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-all duration-300 w-full sm:w-auto overflow-hidden group"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Submit
+                  <span className="relative z-10 flex items-center justify-center">
+                    Submit
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <motion.div 
+                    className="absolute bottom-0 left-0 h-full w-0 bg-gradient-to-r from-[#733cff] to-[#0552b9]"
+                    initial={{ width: "0%" }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
                 </motion.button>
               </div>
               <div className="mt-4 text-right">
