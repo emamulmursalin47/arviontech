@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { ThemeProvider } from "@/components/theme-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { SmoothScroll } from "@/components/smooth-scroll";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,15 +24,17 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="white"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative min-h-screen flex flex-col">
-            <SiteHeader />
-            <main className="flex-grow pt-16">{children}</main>
-            <SiteFooter />
-          </div>
+          <SmoothScroll>
+            <div className="relative min-h-screen flex flex-col">
+              <SiteHeader />
+              <main className="flex-grow">{children}</main>
+              <SiteFooter />
+            </div>
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

@@ -1,55 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Smartphone, Palette, Database, Shield, Brain } from "lucide-react";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-
-const services = [
-  {
-    icon: <Code2 className="h-12 w-12" />,
-    title: "Web Development",
-    description: "Custom web applications built with modern technologies and best practices.",
-    features: ["React/Next.js", "Node.js", "REST APIs", "Database Design"],
-  },
-  {
-    icon: <Smartphone className="h-12 w-12" />,
-    title: "Mobile Development",
-    description: "Native and cross-platform mobile applications for iOS and Android.",
-    features: ["React Native", "Flutter", "Native iOS/Android", "App Store Optimization"],
-  },
-  {
-    icon: <Palette className="h-12 w-12" />,
-    title: "UI/UX Design",
-    description: "User-centered design solutions that deliver exceptional experiences.",
-    features: ["User Research", "Wireframing", "Prototyping", "Design Systems"],
-  },
-  {
-    icon: <Database className="h-12 w-12" />,
-    title: "Cloud Solutions",
-    description: "Scalable cloud infrastructure and DevOps implementation.",
-    features: ["AWS/Azure", "Docker", "Kubernetes", "CI/CD"],
-  },
-  {
-    icon: <Shield className="h-12 w-12" />,
-    title: "Cybersecurity",
-    description: "Comprehensive security solutions to protect your digital assets.",
-    features: ["Security Audits", "Penetration Testing", "Compliance", "Training"],
-  },
-  {
-    icon: <Brain className="h-12 w-12" />,
-    title: "AI & ML Solutions",
-    description: "Intelligent solutions powered by cutting-edge AI technologies.",
-    features: ["Machine Learning", "Natural Language Processing", "Computer Vision", "Predictive Analytics"],
-  },
-];
+import { ServicesAccordion } from "@/components/services-accordion";
 
 export default function ServicesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[40vh] flex items-center justify-center bg-gradient-to-b from-primary/5 to-background">
+      <section className="relative py-20 flex items-center justify-center bg-gradient-to-tr from-[#0552b9]/25 via-[#1887eb]/10 to-[#733cff]/30">
         <motion.div 
           className="container px-4 mx-auto text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -65,37 +23,57 @@ export default function ServicesPage() {
         </motion.div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Accordion Section */}
       <section className="py-24">
         <div className="container px-4 mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="p-6 h-full hover:shadow-lg transition-shadow">
-                  <div className="mb-6 text-primary">{service.icon}</div>
-                  <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-sm">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mr-2" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full" asChild>
-                    <Link href="/contact">Learn More</Link>
-                  </Button>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+          <ServicesAccordion />
+        </div>
+      </section>
+      
+      {/* Contact CTA */}
+      <section className="py-24 relative text-white overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0552b9] via-[#1887eb] to-[#733cff]"></div>
+        <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bTAtOGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptLTggNGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptOCAwYzAtMi4yMDktMS43OTEtNC00LTRzLTQgMS43OTEtNCA0IDEuNzkxIDQgNCA0IDQtMS43OTEgNC00em0wLThjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS04IDRjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] bg-center"></div>
+        <div className="container px-4 mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
+            <p className="text-white/90 max-w-2xl mx-auto mb-8">
+              Contact us today to discuss how our services can help your business grow and thrive in the digital economy.
+            </p>
+            <motion.div 
+              className="bg-white p-8 max-w-md mx-auto rounded-lg shadow-xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <h3 className="text-2xl font-bold mb-4 text-gray-800">Contact us Quickly!</h3>
+              <p className="text-gray-600 mb-6">With a simple step you will be connected with our trained customer support manager.</p>
+              <div className="flex items-center">
+                <input 
+                  type="email" 
+                  placeholder="Your email" 
+                  className="px-4 py-2 border border-gray-300 rounded-l flex-1 focus:outline-none focus:ring-2 focus:ring-[#1887eb]" 
+                />
+                <button className="bg-[#1887eb] hover:bg-[#733cff] text-white px-4 py-2 rounded-r transition-colors duration-300">
+                  Submit
+                </button>
+              </div>
+              <div className="mt-4 text-right">
+                <a href="mailto:hello@arviontech.com" className="text-[#1887eb] hover:text-[#733cff] flex items-center justify-end gap-1 font-medium">
+                  hello@arviontech.com
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                    <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                  </svg>
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>

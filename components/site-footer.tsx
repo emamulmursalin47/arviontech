@@ -6,7 +6,7 @@ import { Facebook, Twitter, Instagram, Linkedin, ArrowRight } from "lucide-react
 
 export function SiteFooter() {
   return (
-    <footer className="bg-muted/50 border-t">
+    <footer className="bg-muted/50 border-t border-[#1887eb]/10">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -47,7 +47,7 @@ export function SiteFooter() {
                 <li key={item}>
                   <Link
                     href={`/${item.toLowerCase()}`}
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-[#1887eb] transition-colors"
                   >
                     {item}
                   </Link>
@@ -61,16 +61,17 @@ export function SiteFooter() {
             <h3 className="text-lg font-bold mb-4">Services</h3>
             <ul className="space-y-2">
               {[
-                "Web Development",
-                "Mobile Apps",
-                "UI/UX Design",
-                "Cloud Solutions",
-                "Cybersecurity",
+                "Web & Mobile App Development",
+                "UI/UX & Product Design",
+                "Data Scrapping & Automation",
+                "E-commerce Platforms",
+                "Business Automation",
+                "Custom Software Solutions",
               ].map((service) => (
                 <li key={service}>
                   <Link
                     href="/services"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-[#1887eb] transition-colors"
                   >
                     {service}
                   </Link>

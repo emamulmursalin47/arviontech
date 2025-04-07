@@ -9,12 +9,16 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+const leftNavigation = [
+  { name: "Career", href: "/career" },
+  { name: "Blogs", href: "/blogs" },
+  { name: "About Us", href: "/about" },
+];
+
+const rightNavigation = [
   { name: "Services", href: "/services" },
-  { name: "Team", href: "/team" },
-  { name: "Contact", href: "/contact" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export function SiteHeader() {
@@ -22,34 +26,54 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-background/80 backdrop-blur-sm border-b">
-      <nav className="container mx-auto px-4 flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center space-x-2">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center"
-          >
-            <Image 
-              src="https://res.cloudinary.com/dufs2ywc7/image/upload/v1743935527/Arvion_Logo3_agwqox.png"
-              alt="Arvion Tech Logo"
-              width={100}
-              height={50}
-              className="rounded-sm"
-            />
-          </motion.div>
-        </Link>
-
-        {/* Desktop Navigation */}
+    <header className="w-full bg-gradient-to-tr from-[#0552b9]/25 via-[#1887eb]/20 to-[#733cff]/50 backdrop-blur-lg border-b sticky top-0 z-50 border-[#1887eb]/10">
+      <nav className="container mx-auto px-4 flex items-center justify-between h-20">
+        {/* Left Navigation - Desktop */}
         <div className="hidden md:flex items-center space-x-8">
-          {navigation.map((item) => (
+          {leftNavigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
+              className={`text-sm font-medium transition-colors hover:text-white ${
                 pathname === item.href
-                  ? "text-primary"
-                  : "text-muted-foreground"
+                  ? "text-black"
+                  : "text-black/80"
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Logo - Centered */}
+        <div className="flex items-center justify-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+          <Link href="/" className="flex items-center">
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-center"
+            >
+              <Image 
+                src="https://res.cloudinary.com/dufs2ywc7/image/upload/v1743935527/Arvion_Logo3_agwqox.png"
+                alt="Arvion Tech Logo"
+                width={150}
+                height={80}
+                className="rounded-sm"
+              />
+            </motion.div>
+          </Link>
+        </div>
+
+        {/* Right Navigation - Desktop */}
+        <div className="hidden md:flex items-center space-x-8">
+          {rightNavigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className={`text-sm font-medium transition-colors hover:text-white ${
+                pathname === item.href
+                  ? "text-black"
+                  : "text-black/80"
               }`}
             >
               {item.name}
@@ -63,7 +87,7 @@ export function SiteHeader() {
           <ThemeToggle />
           <Button
             variant="ghost"
-            className="ml-2"
+            className="ml-2 text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
@@ -77,16 +101,16 @@ export function SiteHeader() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-16 inset-x-0 bg-background border-b">
+          <div className="md:hidden absolute top-20 left-0 right-0 bg-gradient-to-tr from-[#0552b9]/25 via-[#1887eb]/10 to-[#733cff]/30 backdrop-blur-sm border-b border-[#1887eb]/10 z-50">
             <div className="space-y-1 px-4 py-4">
-              {navigation.map((item) => (
+              {[...leftNavigation, ...rightNavigation].map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   className={`block px-3 py-2 text-base font-medium rounded-md ${
                     pathname === item.href
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:bg-accent"
+                      ? "text-black bg-white/10"
+                      : "text-black/80 hover:text-black hover:bg-white/5"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
