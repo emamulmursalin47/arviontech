@@ -22,7 +22,7 @@ const team = [
     name: "Md. Emamul Mursalin",
     role: "Managing Director & Co-Founder",
     image: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1742190919/Blue_Simple_Business_Professional_LinkedIn_Profile_Picture_2_xsxngn.png",
-    bio: "Full-stack architect with a passion for scalable solutions",
+    bio: "Solution architecture Specialist with a passion for scalable solutions",
     social: {
       twitter: "https://www.facebook.com/profile.php?id=61574964023996",
       linkedin: "https://www.linkedin.com/in/mdemamulmursalin/",
@@ -31,7 +31,7 @@ const team = [
   },
   {
     name: "Arfaz Ahmed",
-    role: "CTO & Co-Founder",
+    role: "Lead Developer & Co-Founder",
     image: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744022350/1718215980116_c7h410.jpg",
     bio: "Full-stack architect with a passion for scalable solutions",
     social: {
@@ -44,24 +44,24 @@ const team = [
     name: "Esmot Ara",
     role: "Frontend Developer",
     image: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744022654/WhatsApp_Image_2025-04-07_at_16.39.25_85c81d04_rlrphp.jpg",
-    bio: "Expert in cloud architecture and DevOps practices",
+    bio: "Expert in frontend technologies like Next.js and Testing practices",
     social: {
       twitter: "https://bd.linkedin.com/in/esmot-ara-199215207",
       linkedin: "https://bd.linkedin.com/in/esmot-ara-199215207",
       github: "https://github.com/esmotara-codec",
     }
-  }
-  // {
-  //   name: "Lisa Patel",
-  //   role: "Product Manager",
-  //   image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
-  //   bio: "Driving product vision with data-driven strategies",
-  //   social: {
-  //     twitter: "#",
-  //     linkedin: "#",
-  //     github: "#",
-  //   },
-  // },
+  },
+  {
+    name: "Ikram Ico",
+    role: "Mobile App Developer",
+    image: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744023084/475132276_1278792753387624_69342621772972035_n_dak2gv.jpg",
+    bio: "Specialized in Flutter App Development and compliance",
+    social: {
+      twitter: "#",
+      linkedin: "https://www.linkedin.com/in/ikram-ico-a301321b3/",
+      github: "#",
+    },
+  },
   // {
   //   name: "James Wilson",
   //   role: "Security Expert",
