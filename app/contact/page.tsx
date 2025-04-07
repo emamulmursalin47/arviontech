@@ -45,7 +45,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Let's discuss how we can help transform your business
+            Let&apos;s discuss how we can help transform your business
           </p>
         </motion.div>
       </section>

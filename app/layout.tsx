@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   title: 'Arvion Tech - Digital Excellence',
   description: 'Transform your business with cutting-edge digital solutions. Web development, UI/UX design, custom software, and more.',
 };
-
 export default function RootLayout({
   children,
 }: {
@@ -29,7 +28,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SmoothScroll>
-            <div className="relative min-h-screen flex flex-col">
+            <div className="relative min-h-screen flex flex-col bg-gradient-to-tr from-[#0552b9]/25 via-[#1887eb]/10 to-[#733cff]/30">
               <SiteHeader />
               <main className="flex-grow">{children}</main>
               <SiteFooter />

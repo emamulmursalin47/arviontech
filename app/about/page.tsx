@@ -84,7 +84,7 @@ export default function AboutPage() {
             <span className="text-primary block mt-2">Digital Innovation</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Since 2018, we've been at the forefront of digital transformation, 
+            Since 2018, we&apos;ve been at the forefront of digital transformation, 
             helping businesses achieve their technological aspirations.
           </p>
         </motion.div>

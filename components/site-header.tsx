@@ -26,7 +26,7 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="w-full bg-gradient-to-tr from-[#0552b9]/25 via-[#1887eb]/20 to-[#733cff]/50 backdrop-blur-lg border-b sticky top-0 z-50 border-[#1887eb]/10">
+    <header className="w-full backdrop-blur-lg  sticky top-0 z-50">
       <nav className="container mx-auto px-4 flex items-center justify-between h-20">
         {/* Left Navigation - Desktop */}
         <div className="hidden md:flex items-center space-x-8">

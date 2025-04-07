@@ -318,7 +318,7 @@ export default function Home() {
           >
             <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
             <p className="text-white/90 max-w-2xl mx-auto mb-8">
-              Let's collaborate to bring your vision to life with our expertise in digital solutions.
+              Let&apos;s collaborate to bring your vision to life with our expertise in digital solutions.
             </p>
             <Button
               variant="outline"
