@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { AwaitedReactNode, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ServicesAccordion } from "@/components/services-accordion";
 import { X } from "lucide-react";
+import Image from "next/image";
 
 // Service modal component
+//@ts-ignore
 const ServiceModal = ({ isOpen, onClose, service }) => {
   if (!service) return null;
   
@@ -46,10 +48,12 @@ const ServiceModal = ({ isOpen, onClose, service }) => {
                 
                 <div className="p-6 sm:p-8">
                   <div className="w-24 h-24 rounded-lg overflow-hidden mb-6">
-                    <img 
+                    <Image
                       src={service.imageUrl} 
                       alt={service.title} 
                       className="w-full h-full object-cover"
+                      width={500}
+                      height={250}
                     />
                   </div>
                   
@@ -61,7 +65,8 @@ const ServiceModal = ({ isOpen, onClose, service }) => {
                     <div>
                       <h4 className="font-semibold text-lg mb-3">Key Features</h4>
                       <ul className="space-y-2">
-                        {service.features.map((feature, index) => (
+                        
+                        {service.features.map((feature: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined, index: Key | null | undefined) => (
                           <li key={index} className="flex items-start gap-3">
                             <div className="mt-1 text-[#1887eb]">
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -101,7 +106,7 @@ export default function ServicesPage() {
     {
       title: "Web Development",
       description: "We build modern, responsive, and performant websites and web applications tailored to your business needs.",
-      imageUrl: "/api/placeholder/400/320",
+      imageUrl: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744019163/web_development_tiwfrx.jpg",
       features: [
         "Responsive design for all devices",
         "Performance optimization",
@@ -114,7 +119,7 @@ export default function ServicesPage() {
     {
       title: "Mobile App Development",
       description: "Native and cross-platform mobile applications that provide seamless user experiences across all devices.",
-      imageUrl: "/api/placeholder/400/320",
+      imageUrl: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744019162/Mobile_iw5jes.png",
       features: [
         "Native iOS and Android development",
         "Cross-platform solutions",
@@ -127,7 +132,7 @@ export default function ServicesPage() {
     {
       title: "UI/UX & Product Design",
       description: "User-centered design solutions that create intuitive, engaging interfaces and exceptional user experiences.",
-      imageUrl: "/api/placeholder/400/320",
+      imageUrl: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744019163/UI_UX_rdp2lj.jpg",
       features: [
         "User research and personas",
         "Wireframing and prototyping",
@@ -140,7 +145,7 @@ export default function ServicesPage() {
     {
       title: "Data Scraping & Automation",
       description: "Powerful data extraction and process automation solutions to streamline your business operations.",
-      imageUrl: "/api/placeholder/400/320",
+      imageUrl: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744019162/scraper_l9vmtj.png",
       features: [
         "Web scraping solutions",
         "Data extraction APIs",
@@ -153,7 +158,7 @@ export default function ServicesPage() {
     {
       title: "E-commerce Platforms",
       description: "End-to-end e-commerce solutions from storefront design to payment processing and inventory management.",
-      imageUrl: "/api/placeholder/400/320",
+      imageUrl: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744019163/ecommerce_epwzrh.webp",
       features: [
         "Custom e-commerce development",
         "Shopping cart integration",
@@ -166,7 +171,7 @@ export default function ServicesPage() {
     {
       title: "Business Automation",
       description: "Streamline operations and increase efficiency with custom business process automation solutions.",
-      imageUrl: "/api/placeholder/400/320",
+      imageUrl: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744019162/business_automation_dlowtf.jpg",
       features: [
         "Business process analysis",
         "Workflow optimization",
@@ -179,7 +184,7 @@ export default function ServicesPage() {
     {
       title: "Custom Software Solutions",
       description: "Bespoke software applications designed to address your unique business challenges and requirements.",
-      imageUrl: "/api/placeholder/400/320",
+      imageUrl: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744019162/custom-software_zf1lyw.png",
       features: [
         "Requirement analysis",
         "Custom architecture design",
@@ -192,7 +197,7 @@ export default function ServicesPage() {
     {
       title: "Cloud Solutions",
       description: "Scalable cloud infrastructure and solutions to help your business grow and adapt to changing demands.",
-      imageUrl: "/api/placeholder/400/320",
+      imageUrl: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744019163/cloud_ic7wdm.webp",
       features: [
         "Cloud migration strategies",
         "AWS, Azure, and Google Cloud expertise",
@@ -203,7 +208,7 @@ export default function ServicesPage() {
       ]
     }
   ];
-
+//@ts-ignore
   const openServiceModal = (service) => {
     setSelectedService(service);
     setModalOpen(true);
@@ -236,23 +241,25 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 flex items-center justify-center bg-gradient-to-tr from-[#0552b9]/25 via-[#1887eb]/10 to-[#733cff]/30 overflow-hidden">
+      <section className="relative py-24 md:py-24 flex items-center justify-center bg-gradient-to-tr from-[#0552b9]/25 via-[#1887eb]/10 to-[#733cff]/30 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -inset-[10px] bg-grid-white/5 [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]"></div>
         </div>
         
         <motion.div 
-          className="container px-4 mx-auto text-center relative z-10"
+          className="container px-4 mx-auto text-center mt-0 relative z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#0552b9] to-[#733cff]">
+            <h1 className="text-4xl md:text-6xl lg:text-5xl mt-0 font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#0552b9] to-[#733cff]">
               Our Services
             </h1>
           </motion.div>
@@ -270,23 +277,18 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-8"
+            className="mt-16"
           >
-            <motion.button
+            {/* <motion.button
               className="bg-gradient-to-r from-[#0552b9] to-[#733cff] text-white px-8 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Explore Services
-            </motion.button>
+            </motion.button> */}
           </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Featured Services Section */}
-      <section className="py-20">
-        <div className="container px-4 mx-auto">
-          <motion.div
+          <div className="container px-4 mx-auto">
+          {/* <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -297,10 +299,10 @@ export default function ServicesPage() {
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Explore our comprehensive range of digital services designed to help your business thrive
             </p>
-          </motion.div>
+          </motion.div> */}
           
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -314,10 +316,12 @@ export default function ServicesPage() {
                 className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl"
               >
                 <div className="h-48 overflow-hidden">
-                  <img 
+                  <Image
                     src={service.imageUrl} 
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    width={500}
+                    height={250}
                   />
                 </div>
                 <div className="p-6">
@@ -340,62 +344,18 @@ export default function ServicesPage() {
             ))}
           </motion.div>
         </div>
+        </motion.div>
+        
       </section>
+
+      {/* Featured Services Section */}
+     
 
       {/* Services Accordion Section */}
       
       
       {/* Contact CTA */}
-      <section className="py-24 relative text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0552b9] via-[#1887eb] to-[#733cff]"></div>
-        <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bTAtOGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptLTggNGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptOCAwYzAtMi4yMDktMS43OTEtNC00LTRzLTQgMS43OTEtNCA0IDEuNzkxIDQgNCA0IDQtMS43OTEgNC00em0wLThjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS04IDRjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] bg-center"></div>
-        <div className="container px-4 mx-auto text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
-            <p className="text-white/90 max-w-2xl mx-auto mb-8">
-              Contact us today to discuss how our services can help your business grow and thrive in the digital economy.
-            </p>
-            <motion.div 
-              className="bg-white p-8 max-w-md mx-auto rounded-xl shadow-xl"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">Contact us Quickly!</h3>
-              <p className="text-gray-600 mb-6">With a simple step you will be connected with our trained customer support manager.</p>
-              <div className="flex flex-col sm:flex-row items-center gap-2">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="px-4 py-3 border border-gray-300 rounded-lg sm:rounded-l-lg sm:rounded-r-none flex-1 focus:outline-none focus:ring-2 focus:ring-[#1887eb] w-full" 
-                />
-                <motion.button 
-                  className="bg-gradient-to-r from-[#0552b9] to-[#733cff] hover:from-[#0552b9] hover:to-[#5223bb] text-white px-6 py-3 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-colors duration-300 w-full sm:w-auto"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Submit
-                </motion.button>
-              </div>
-              <div className="mt-4 text-right">
-                <a href="mailto:hello@arviontech.com" className="text-[#1887eb] hover:text-[#733cff] flex items-center justify-end gap-1 font-medium group">
-                  hello@arviontech.com
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" className="transition-transform group-hover:translate-x-1">
-                    <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
-                    <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
-                  </svg>
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+     
       
       {/* Service Modal */}
       <ServiceModal 

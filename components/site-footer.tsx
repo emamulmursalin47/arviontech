@@ -1,4 +1,6 @@
+'use client'
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,20 +25,56 @@ export function SiteFooter() {
             <p className="text-muted-foreground">
               Building digital excellence through innovative solutions and cutting-edge technology.
             </p>
+
             <div className="flex space-x-4">
-              <Button variant="ghost" size="icon">
-                <Facebook className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Twitter className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Instagram className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Linkedin className="h-5 w-5" />
-              </Button>
-            </div>
+  <Button variant="ghost" size="icon" asChild>
+    <motion.a
+      href="https://facebook.com/yourpage"
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.1, color: "#1877F2" }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Facebook className="h-5 w-5" />
+    </motion.a>
+  </Button>
+  
+  <Button variant="ghost" size="icon" asChild>
+    <motion.a
+      href="https://twitter.com/yourhandle"
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.1, color: "#1DA1F2" }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Twitter className="h-5 w-5" />
+    </motion.a>
+  </Button>
+  
+  <Button variant="ghost" size="icon" asChild>
+    <motion.a
+      href="https://instagram.com/yourprofile"
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.1, color: "#E1306C" }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Instagram className="h-5 w-5" />
+    </motion.a>
+  </Button>
+  
+  <Button variant="ghost" size="icon" asChild>
+    <motion.a
+      href="https://linkedin.com/company/yourcompany"
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.1, color: "#0077B5" }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Linkedin className="h-5 w-5" />
+    </motion.a>
+  </Button>
+</div>
           </div>
 
           {/* Quick Links */}

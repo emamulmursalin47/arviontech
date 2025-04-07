@@ -3,76 +3,76 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Facebook, Github, Linkedin,  } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const team = [
   {
-    name: "Sarah Johnson",
+    name: "Md. Hasan Ali Khan",
     role: "CEO & Founder",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-    bio: "15+ years of experience in tech leadership and innovation",
+    image: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744021914/Blue_Simple_Business_Professional_LinkedIn_Profile_Picture_1_xrad48.png",
+    bio: "Years of experience in tech leadership and innovation",
     social: {
-      twitter: "#",
-      linkedin: "#",
-      github: "#",
+      twitter: "https://www.facebook.com/mdhasan.alikhan.794",
+      linkedin: "https://www.linkedin.com/in/md-hasan-ali-khan/",
+      github: "https://github.com/hasanali112",
     },
   },
   {
-    name: "Michael Chen",
-    role: "CTO",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    name: "Md. Emamul Mursalin",
+    role: "Managing Director & Co-Founder",
+    image: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1742190919/Blue_Simple_Business_Professional_LinkedIn_Profile_Picture_2_xsxngn.png",
     bio: "Full-stack architect with a passion for scalable solutions",
     social: {
-      twitter: "#",
-      linkedin: "#",
-      github: "#",
+      twitter: "https://www.facebook.com/profile.php?id=61574964023996",
+      linkedin: "https://www.linkedin.com/in/mdemamulmursalin/",
+      github: "https://github.com/emamulmursalin47",
     },
   },
   {
-    name: "Emily Rodriguez",
-    role: "Design Director",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    bio: "Award-winning designer specializing in user experience",
+    name: "Arfaz Ahmed",
+    role: "CTO & Co-Founder",
+    image: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744022350/1718215980116_c7h410.jpg",
+    bio: "Full-stack architect with a passion for scalable solutions",
     social: {
-      twitter: "#",
-      linkedin: "#",
-      github: "#",
+      twitter: "https://www.facebook.com/arfaz.ahamed.546967",
+      linkedin: "https://www.linkedin.com/in/arfaz-ahamed/",
+      github: "https://github.com/Arfaz31",
     },
   },
   {
-    name: "David Kim",
-    role: "Lead Developer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    name: "Esmot Ara",
+    role: "Frontend Developer",
+    image: "https://res.cloudinary.com/dufs2ywc7/image/upload/v1744022654/WhatsApp_Image_2025-04-07_at_16.39.25_85c81d04_rlrphp.jpg",
     bio: "Expert in cloud architecture and DevOps practices",
     social: {
-      twitter: "#",
-      linkedin: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Lisa Patel",
-    role: "Product Manager",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
-    bio: "Driving product vision with data-driven strategies",
-    social: {
-      twitter: "#",
-      linkedin: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "James Wilson",
-    role: "Security Expert",
-    image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-    bio: "Specialized in cybersecurity and compliance",
-    social: {
-      twitter: "#",
-      linkedin: "#",
-      github: "#",
-    },
-  },
+      twitter: "https://bd.linkedin.com/in/esmot-ara-199215207",
+      linkedin: "https://bd.linkedin.com/in/esmot-ara-199215207",
+      github: "https://github.com/esmotara-codec",
+    }
+  }
+  // {
+  //   name: "Lisa Patel",
+  //   role: "Product Manager",
+  //   image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+  //   bio: "Driving product vision with data-driven strategies",
+  //   social: {
+  //     twitter: "#",
+  //     linkedin: "#",
+  //     github: "#",
+  //   },
+  // },
+  // {
+  //   name: "James Wilson",
+  //   role: "Security Expert",
+  //   image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  //   bio: "Specialized in cybersecurity and compliance",
+  //   social: {
+  //     twitter: "#",
+  //     linkedin: "#",
+  //     github: "#",
+  //   },
+  // },
 ];
 
 export default function TeamPage() {
@@ -86,19 +86,22 @@ export default function TeamPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Meet Our Team
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Talented professionals dedicated to delivering excellence
           </p>
+
+          
         </motion.div>
+        
       </section>
 
       {/* Team Grid */}
       <section className="py-24">
-        <div className="container px-4 mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="container px-4 mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -122,7 +125,7 @@ export default function TeamPage() {
                     <p className="text-muted-foreground mb-4">{member.bio}</p>
                     <div className="flex space-x-2">
                       <Button variant="ghost" size="icon">
-                        <Twitter className="h-4 w-4" />
+                        <Facebook className="h-4 w-4" />
                       </Button>
                       <Button variant="ghost" size="icon">
                         <Linkedin className="h-4 w-4" />

@@ -11,7 +11,28 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Arvion Tech - Digital Excellence',
   description: 'Transform your business with cutting-edge digital solutions. Web development, UI/UX design, custom software, and more.',
+  icons: {
+    icon: [
+      {
+        url: 'https://res.cloudinary.com/dufs2ywc7/image/upload/v1743935445/Arvion_Logo3_eofkaf.png',
+        type: 'image/png',
+        sizes: '32x32',
+      },
+      {
+        url: 'https://res.cloudinary.com/dufs2ywc7/image/upload/v1743935445/Arvion_Logo3_eofkaf.png',
+        type: 'image/png',
+        sizes: '192x192',
+      },
+    ],
+    apple: [
+      {
+        url: 'https://res.cloudinary.com/dufs2ywc7/image/upload/v1743935445/Arvion_Logo3_eofkaf.png',
+        sizes: '180x180',
+      },
+    ],
+  },
 };
+
 export default function RootLayout({
   children,
 }: {
